@@ -1,6 +1,6 @@
 <?php
 
-namespace HamZone\AuthPhone\Common;
+namespace HamCQ\AuthPhone\Common;
 
 use Exception;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Dysmsapi;
@@ -14,10 +14,10 @@ use Darabonba\OpenApi\Models\Config;
 use Flarum\Settings\SettingsRepositoryInterface;
 use Illuminate\Contracts\Cache\Repository;
 
-use HamZone\AuthPhone\Common\GenerateCode;
+use HamCQ\AuthPhone\Common\GenerateCode;
 
-use HamZone\AuthPhone\KeyDisk;
-use HamZone\AuthPhone\Users;
+use HamCQ\AuthPhone\KeyDisk;
+use HamCQ\AuthPhone\Users;
 
 class AliSMS 
 {
@@ -31,7 +31,7 @@ class AliSMS
         return new Dysmsapi($config);
     }
 
-    public static function send($data, $uid){
+    public static function send($data, $uid, $ip){
         $msg = ["status" => false , "msg" => ""];
         $phone = isset($data["phone"]) ? $data["phone"] : 0;
         if (!$phone){
@@ -48,7 +48,7 @@ class AliSMS
         $generate = resolve(GenerateCode::class);
         $settings = app(SettingsRepositoryInterface::class);
         $second = $settings->get('flarum-ext-auth-phone.sms_ali_expire_second');
-        list($res, $status) = $generate->generate($uid, $phone, $second);
+        list($res, $status) = $generate->generate($uid, $phone, $second, $ip);
         // app('log')->info( $res );
         if ($status){
             $msg["msg"] = "code_exist";

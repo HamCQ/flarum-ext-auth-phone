@@ -1,6 +1,6 @@
 <?php
 
-namespace HamZone\AuthPhone;
+namespace HamCQ\AuthPhone;
 use Illuminate\Contracts\Filesystem\Factory;
 use Illuminate\Support\Str;
 class KeyDisk

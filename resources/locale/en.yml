@@ -1,4 +1,4 @@
-hamzone-auth-phone:
+hamcq-auth-phone:
   admin:
     settings:
       api_sms_ali_access_id: Aliyun accessKeyId
@@ -22,6 +22,7 @@ hamzone-auth-phone:
       code_expired: Code expired
       code_invalid: Code invalid
       phone_exist: Mobile number has been used
+      phone_need: Yikes! You need to verify your mobile number.
     modals:
       link:
         title: Mobile SMS Auth

@@ -1,5 +1,5 @@
 {
-  "name": "@hamzone/flarum-ext-auth-phone",
+  "name": "@hamcq/flarum-ext-auth-phone",
   "version": "0.0.0",
   "private": true,
   "dependencies": {
@@ -7,8 +7,8 @@
     "webpack": "^4.26.0"
   },
   "scripts": {
-    "dev": "webpack --mode development --watch",
-    "build": "webpack --mode production"
+    "dev": "export NODE_OPTIONS=--openssl-legacy-provider && webpack --mode development --watch",
+    "build": "export NODE_OPTIONS=--openssl-legacy-provider && webpack --mode production"
   },
   "devDependencies": {
     "webpack-cli": "^4.10.0"

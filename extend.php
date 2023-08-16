@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of hamzone/flarum-ext-auth-phone.
+ * This file is part of hamcq/flarum-ext-auth-phone.
  *
  * Copyright (c) 2022 Emin.lin(BG5UWQ).
  *
@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace HamZone\AuthPhone;
+namespace HamCQ\AuthPhone;
 
 use Flarum\Extend;
 use Flarum\Api\Serializer\ForumSerializer;
@@ -17,9 +17,9 @@ use Flarum\Api\Serializer\UserSerializer;
 use FoF\Components\Extend\AddFofComponents;
 use Flarum\User\Event\Saving;
 
-use HamZone\AuthPhone\Listener\SavePhone;
-use HamZone\AuthPhone\Middlewares\DiscussionMiddleware;
-use HamZone\AuthPhone\Console\BuildKeyCommand;
+use HamCQ\AuthPhone\Listener\SavePhone;
+use HamCQ\AuthPhone\Middlewares\DiscussionMiddleware;
+use HamCQ\AuthPhone\Console\BuildKeyCommand;
 
 use Flarum\Foundation\Paths;
 use Flarum\Http\UrlGenerator;

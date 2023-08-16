@@ -1,7 +1,7 @@
 <?php
-namespace HamZone\AuthPhone\Controllers;
+namespace HamCQ\AuthPhone\Controllers;
 
-use HamZone\AuthPhone\Common\AliSMS;
+use HamCQ\AuthPhone\Common\AliSMS;
 
 use Flarum\Http\RequestUtil;
 use Psr\Http\Message\ResponseInterface;
@@ -19,6 +19,7 @@ class SMSSendController implements RequestHandlerInterface
         if($actor->phone){
             return new JsonResponse( ["status"=>false, "msg" => "already bind"] );
         }
-        return new JsonResponse( AliSMS::send( $request->getParsedBody(), $actor->id) );
+        $ip = $request->getAttribute('ipAddress');
+        return new JsonResponse( AliSMS::send( $request->getParsedBody(), $actor->id, $ip) );
     }
 }

@@ -1,5 +1,5 @@
 <?php
-namespace HamZone\AuthPhone\Common;
+namespace HamCQ\AuthPhone\Common;
 class Aes 
 {
     protected $key;//32
@@ -18,7 +18,7 @@ class Aes
 
     function Decrypt(string $text)
     {
-        return openssl_encrypt(base64_decode($text), 'AES-256-CBC', $this->key, OPENSSL_RAW_DATA, $this->iv);
+        return openssl_decrypt(base64_decode($text), 'AES-256-CBC', $this->key, OPENSSL_RAW_DATA, $this->iv);
     }
 
 }

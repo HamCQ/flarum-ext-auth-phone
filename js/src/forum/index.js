@@ -11,8 +11,8 @@ import LinkModal from "./components/LinkModal";
 
 import Button from 'flarum/components/Button';
 
-//packname:flarum-ext-auth-phone  modulename:hamzone-auth-phone
-app.initializers.add('hamzone/flarum-ext-auth-phone', () => {
+//packname:flarum-ext-auth-phone  modulename:hamcq-auth-phone
+app.initializers.add('hamcq/flarum-ext-auth-phone', () => {
     addAlert();
 
     extend(SettingsPage.prototype, 'accountItems', (items) => {
@@ -29,7 +29,7 @@ app.initializers.add('hamzone/flarum-ext-auth-phone', () => {
       items.add(`linkSMSAuth`,
           <Button className={`Button linkSMSAuthButton--${isAuth ? 'danger' : 'success'}`} icon="fas fa-id-badge"
               onclick={() => app.modal.show(isAuth ? UnlinkModal : LinkModal)}>
-              {app.translator.trans(`hamzone-auth-phone.forum.buttons.${isAuth ? 'unlink' : 'link'}`)}
+              {app.translator.trans(`hamcq-auth-phone.forum.buttons.${isAuth ? 'unlink' : 'link'}`)}
           </Button>
       );
   });

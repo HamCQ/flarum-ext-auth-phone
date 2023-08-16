@@ -7,7 +7,7 @@ export default class UnlinkModal extends Modal {
     }
 
     title() {
-        return app.translator.trans(`hamzone-auth-phone.forum.modals.unlink.title`);
+        return app.translator.trans(`hamcq-auth-phone.forum.modals.unlink.title`);
     }
 
     content() {
@@ -15,19 +15,19 @@ export default class UnlinkModal extends Modal {
             <div className="Modal-body">
                 <div className="Form Form--centered">
                     <div className="Form-group" id="submit-button-group">
-                        <h3>{app.translator.trans(`hamzone-auth-phone.forum.modals.unlink.title`)}</h3>
+                        <h3>{app.translator.trans(`hamcq-auth-phone.forum.modals.unlink.title`)}</h3>
                         <p className={`SMSAuthText--danger`}><i className="fas fa-exclamation-triangle fa-fw" />
-                            <b>{app.translator.trans(`hamzone-auth-phone.forum.modals.unlink.no_providers`)}</b>
+                            <b>{app.translator.trans(`hamcq-auth-phone.forum.modals.unlink.no_providers`)}</b>
                         </p>
                         <br />
                         <div className="ButtonGroup">
                             <Button type={'submit'} className={`Button SMSAuthButton--danger`} icon={'fas fa-exclamation-triangle'}
                                 loading={this.loading}>
-                                {app.translator.trans(`hamzone-auth-phone.forum.modals.unlink.confirm`)}
+                                {app.translator.trans(`hamcq-auth-phone.forum.modals.unlink.confirm`)}
                             </Button>
                             <Button className={'Button Button--primary'} icon={'fas fa-exclamation-triangle'}
                                 onclick={() => this.hide()} disabled={this.loading}>
-                                {app.translator.trans(`hamzone-auth-phone.forum.modals.unlink.cancel`)}
+                                {app.translator.trans(`hamcq-auth-phone.forum.modals.unlink.cancel`)}
                             </Button>
                         </div>
                     </div>
@@ -57,7 +57,7 @@ export default class UnlinkModal extends Modal {
           .then(() => {
                 this.hide();
                 m.redraw();
-                alert = app.alerts.show({ type: 'success' }, app.translator.trans(`hamzone-auth-phone.forum.alerts.unlink_success`));
+                alert = app.alerts.show({ type: 'success' }, app.translator.trans(`hamcq-auth-phone.forum.alerts.unlink_success`));
           });
         setTimeout(() => {
             app.alerts.dismiss(alert);

@@ -1,6 +1,6 @@
 <?php
 
-namespace HamZone\AuthPhone\Middlewares;
+namespace HamCQ\AuthPhone\Middlewares;
 
 use Flarum\Foundation\ErrorHandling\ExceptionHandler\IlluminateValidationExceptionHandler;
 use Flarum\Foundation\ErrorHandling\JsonApiFormatter;
@@ -13,6 +13,7 @@ use Flarum\Http\RequestUtil;
 use Flarum\Api\JsonApiResponse;
 use Tobscure\JsonApi\Document;
 use Tobscure\JsonApi\Exception\Handler\ResponseBag;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class DiscussionMiddleware implements MiddlewareInterface
 {
@@ -20,10 +21,14 @@ class DiscussionMiddleware implements MiddlewareInterface
     public function process(Request $request, RequestHandlerInterface $handler): Response
     {
         $path = $request->getUri()->getPath();
-        if ( ( stristr($path, 'discussions') ||  stristr($path, 'posts')) && $request->getMethod() === 'POST') {
+        if ( ( stristr($path, 'discussions') ||  
+                stristr($path, 'posts') || 
+                    stristr($path, 'avatar') || 
+                        stristr($path, 'cover') ) && $request->getMethod() === 'POST') {
             try {
                 $actor = RequestUtil::getActor($request);
                 if(!$actor->phone){
+                    $translator = resolve(TranslatorInterface::class);
                     $error = new ResponseBag('422', [
                         [
                             'status' => '422',
@@ -31,7 +36,7 @@ class DiscussionMiddleware implements MiddlewareInterface
                             'source' => [
                                 'pointer' => $path,
                             ],
-                            'detail' => 'Yikes! You need to verify your mobile number.',
+                            'detail' => $translator->trans('hamcq-auth-phone.forum.alerts.phone_need'),
                         ],
                     ]);
                     $document = new Document();

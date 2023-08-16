@@ -7,7 +7,7 @@ export default class LinkModal extends Modal {
     }
 
     title() {
-        return app.translator.trans(`hamzone-auth-phone.forum.modals.link.title`);
+        return app.translator.trans(`hamcq-auth-phone.forum.modals.link.title`);
     }
 
     content() {
@@ -17,7 +17,7 @@ export default class LinkModal extends Modal {
                     <div className="Form-group">
                         <input class="FormControl bottom" 
                             className="phone" 
-                            placeholder={app.translator.trans(`hamzone-auth-phone.forum.modals.link.phone`)}
+                            placeholder={app.translator.trans(`hamcq-auth-phone.forum.modals.link.phone`)}
                             oninput={e => this.phone = e.target.value}
                             disabled={this.inputDisabled}
                         >
@@ -25,19 +25,19 @@ export default class LinkModal extends Modal {
 
                         <input class="FormControl bottom" 
                             className="code" 
-                            placeholder={app.translator.trans(`hamzone-auth-phone.forum.modals.link.code`)}
+                            placeholder={app.translator.trans(`hamcq-auth-phone.forum.modals.link.code`)}
                             oninput={e => this.code = e.target.value}
                             style={{display:this.display ? "block" : "none"}}
                         ></input>
 
                         <Button className={`Button LogInButton--SMSAuth`} loading={this.loading} disabled={this.loading}
                             onclick={() => this.sendSMS(this.phone)} style={{display:this.displaySend}}>
-                            {app.translator.trans(`hamzone-auth-phone.forum.buttons.send`)}
+                            {app.translator.trans(`hamcq-auth-phone.forum.buttons.send`)}
                         </Button>
 
                         <Button className={`Button LogInButton--SMSAuth`} style={{display:this.display ? "block" : "none"}}
                             onclick={() => this.submit(this.phone, this.code)}>
-                            {app.translator.trans(`hamzone-auth-phone.forum.buttons.submit`)}
+                            {app.translator.trans(`hamcq-auth-phone.forum.buttons.submit`)}
                         </Button>
                     </div>
                 </div>
@@ -57,7 +57,7 @@ export default class LinkModal extends Modal {
             this.loading = false;
             this.inputDisabled = false;
             app.alerts.show({ type: 'error' }, 
-                app.translator.trans(`hamzone-auth-phone.forum.alerts.wrong_num`)
+                app.translator.trans(`hamcq-auth-phone.forum.alerts.wrong_num`)
             );
             return;
         }
@@ -85,24 +85,24 @@ export default class LinkModal extends Modal {
                     app.alerts.dismiss(alert);
                     switch(result.msg){
                         case "code_exist":
-                            app.alerts.show({ type: 'error' }, app.translator.trans(`hamzone-auth-phone.forum.alerts.code_exist`,{
+                            app.alerts.show({ type: 'error' }, app.translator.trans(`hamcq-auth-phone.forum.alerts.code_exist`,{
                                 time: result.time
                             }));
                             break;
                         case "code_null":
-                            app.alerts.show({ type: 'error' }, app.translator.trans(`hamzone-auth-phone.forum.alerts.code_null`));
+                            app.alerts.show({ type: 'error' }, app.translator.trans(`hamcq-auth-phone.forum.alerts.code_null`));
                             break;
                         case "code_expired":
-                            app.alerts.show({ type: 'error' }, app.translator.trans(`hamzone-auth-phone.forum.alerts.code_expired`));
+                            app.alerts.show({ type: 'error' }, app.translator.trans(`hamcq-auth-phone.forum.alerts.code_expired`));
                             break;
                         case "code_invalid":
-                            app.alerts.show({ type: 'error' }, app.translator.trans(`hamzone-auth-phone.forum.alerts.code_invalid`));
+                            app.alerts.show({ type: 'error' }, app.translator.trans(`hamcq-auth-phone.forum.alerts.code_invalid`));
                             break;
                         case "phone_exist":
                             this.displaySend = "block";
                             this.display = false;
                             this.inputDisabled = false;
-                            app.alerts.show({ type: 'error' }, app.translator.trans(`hamzone-auth-phone.forum.alerts.phone_exist`));
+                            app.alerts.show({ type: 'error' }, app.translator.trans(`hamcq-auth-phone.forum.alerts.phone_exist`));
                             break;
                         default:
                             this.inputDisabled = false;
@@ -111,7 +111,7 @@ export default class LinkModal extends Modal {
                     }
                     return;
                 }
-                app.alerts.show({ type: 'success' }, app.translator.trans(`hamzone-auth-phone.forum.alerts.send_success`));
+                app.alerts.show({ type: 'success' }, app.translator.trans(`hamcq-auth-phone.forum.alerts.send_success`));
             });
     }
 
@@ -136,7 +136,7 @@ export default class LinkModal extends Modal {
             })
           .then(() => {
                 this.hide();
-                app.alerts.show({ type: 'success' }, app.translator.trans(`hamzone-auth-phone.forum.alerts.link_success`));
+                app.alerts.show({ type: 'success' }, app.translator.trans(`hamcq-auth-phone.forum.alerts.link_success`));
                 m.redraw();
                 window.location.reload();
           });

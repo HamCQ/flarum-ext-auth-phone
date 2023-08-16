@@ -20,7 +20,7 @@ export default class SettingsPage extends ExtensionPage {
                             setting={this.setting}
                             {...{ ['required']: true }}
                         >
-                            {app.translator.trans(`hamzone-auth-phone.admin.settings.api_sms_ali_access_id`)}
+                            {app.translator.trans(`hamcq-auth-phone.admin.settings.api_sms_ali_access_id`)}
                         </StringItem>
                     </div>
                     <div className="Form-group">
@@ -29,7 +29,7 @@ export default class SettingsPage extends ExtensionPage {
                             setting={this.setting}
                             {...{ ['required']: true }}
                         >
-                            {app.translator.trans(`hamzone-auth-phone.admin.settings.api_sms_ali_access_sec`)}
+                            {app.translator.trans(`hamcq-auth-phone.admin.settings.api_sms_ali_access_sec`)}
                         </StringItem>
                     </div>
                     <div className="Form-group">
@@ -38,7 +38,7 @@ export default class SettingsPage extends ExtensionPage {
                             setting={this.setting}
                             {...{ ['required']: true }}
                         >
-                            {app.translator.trans(`hamzone-auth-phone.admin.settings.api_sms_ali_sign`)}
+                            {app.translator.trans(`hamcq-auth-phone.admin.settings.api_sms_ali_sign`)}
                         </StringItem>
                     </div>
                     <div className="Form-group">
@@ -47,7 +47,7 @@ export default class SettingsPage extends ExtensionPage {
                             setting={this.setting}
                             {...{ ['required']: true }}
                         >
-                            {app.translator.trans(`hamzone-auth-phone.admin.settings.api_sms_ali_template_code`)}
+                            {app.translator.trans(`hamcq-auth-phone.admin.settings.api_sms_ali_template_code`)}
                         </StringItem>
                     </div>
                     <div className="Form-group">
@@ -56,7 +56,7 @@ export default class SettingsPage extends ExtensionPage {
                             setting={this.setting}
                             {...{ ['required']: true }}
                         >
-                            {app.translator.trans(`hamzone-auth-phone.admin.settings.api_sms_ali_expire_second`)}
+                            {app.translator.trans(`hamcq-auth-phone.admin.settings.api_sms_ali_expire_second`)}
                         </StringItem>
                     </div>
                     {this.submitButton()}

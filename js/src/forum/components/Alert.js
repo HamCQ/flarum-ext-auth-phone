@@ -25,7 +25,7 @@ export default class UpdateAlert {
             app.modal.show(LinkModal);
           },
         },
-        app.translator.trans('hamzone-auth-phone.forum.alerts.toLink')
+        app.translator.trans('hamcq-auth-phone.forum.alerts.toLink')
       ),
     ];
     const dismissControl = [];
@@ -33,7 +33,7 @@ export default class UpdateAlert {
         '.Alert.Alert-info',
         m('.container', [
           m(
-            'span.Alert-body', app.translator.trans(`hamzone-auth-phone.forum.alerts.limit`)
+            'span.Alert-body', app.translator.trans(`hamcq-auth-phone.forum.alerts.limit`)
           ),
           m('ul.Alert-controls',  listItems(controls.concat(dismissControl))),
         ])

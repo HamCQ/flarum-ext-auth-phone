@@ -1,5 +1,5 @@
 {
-  "name": "hamzone/flarum-ext-auth-phone",
+  "name": "hamcq/flarum-ext-auth-phone",
   "description": "auth by phone sms once code",
   "keywords": [
     "flarum","sms","phone","aliyun","tencentCloud","auth"
@@ -21,7 +21,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "HamZone\\AuthPhone\\": "src/"
+      "HamCQ\\AuthPhone\\": "src/"
     }
   },
   "extra": {
