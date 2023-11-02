@@ -8,13 +8,6 @@ use HamCQ\AuthPhone\Common\Aes;
 class GenerateCode 
 {
 
-    // protected $cache;
-
-    // public function __construct(Repository $cache)
-    // {
-    //     $this->cache = $cache;
-    // }
-
     public function generate($uid, $phone, $second, $ip){
         if(!$second || $second==0){
             $second = 300;
@@ -31,12 +24,9 @@ class GenerateCode
             ["exp_time", ">=", time()]
         ])->orderBy("created_time","desc")->first();
 
-        // $status = $this->cache->get($uid."_".trim($phone));
         if($info){
             return array((int)$info->exp_time, true);
         }
-        // $this->cache->put($uid."_".$phone, $randNumber, $second);
-        // $this->cache->put($phone."_time", time() + $second, $second);
 
         PhoneCode::insert([
             "user_id" => $uid,

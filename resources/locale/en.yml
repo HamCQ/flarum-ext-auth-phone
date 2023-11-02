@@ -5,7 +5,11 @@ hamcq-auth-phone:
       api_sms_ali_access_sec: Aliyun accessKeySecret
       api_sms_ali_sign: Aliyun SMS sign
       api_sms_ali_template_code: Aliyun template code
+      api_sms_ali_template_code_traditional: Aliyun template code (traditional)
       api_sms_ali_expire_second: SMS expire second(default:300s)
+      tips_switch: Why does community need to verify phone numbers?
+      tips_title: Title
+      tips_url: Url
   forum:
     alerts:
       limit: Before you verify your mobile number, we temporarily restricted your account's operation authority. 
@@ -23,6 +27,8 @@ hamcq-auth-phone:
       code_invalid: Code invalid
       phone_exist: Mobile number has been used
       phone_need: Yikes! You need to verify your mobile number.
+      param_invalid: Param invalid.
+      region_invalid: Region invalid.
     modals:
       link:
         title: Mobile SMS Auth
@@ -38,3 +44,5 @@ hamcq-auth-phone:
       send: Send
       unlink: Unlink Mobile Phone
       submit: Submit
+    tips:
+      title: Why does community need to verify phone numbers?

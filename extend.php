@@ -60,7 +60,7 @@ return [
 
     //aes 秘钥存储
     (new Extend\Filesystem())
-        ->disk('flarum-aes', function (Paths $paths, UrlGenerator $url) {
+        ->disk('flarum-aes', function (Paths $paths) {
             return [
                 'root'   => "$paths->storage/key",
             ];
@@ -82,4 +82,13 @@ return [
             return $attributes;
         }),
 
+    (new Extend\Settings())
+        ->serializeToForum('hamcqAuthPhoneTips', 'hamcqAuthPhoneTips', 'boolVal')
+        ->serializeToForum('hamcqAuthPhoneTipsOneTitle', 'hamcqAuthPhoneTipsOneTitle')
+        ->serializeToForum('hamcqAuthPhoneTipsOneUrl', 'hamcqAuthPhoneTipsOneUrl')
+        ->serializeToForum('hamcqAuthPhoneTipsTwoTitle', 'hamcqAuthPhoneTipsTwoTitle')
+        ->serializeToForum('hamcqAuthPhoneTipsTwoUrl', 'hamcqAuthPhoneTipsTwoUrl')
+        ->serializeToForum('hamcqAuthPhoneTipsThreeTitle', 'hamcqAuthPhoneTipsThreeTitle')
+        ->serializeToForum('hamcqAuthPhoneTipsThreeUrl', 'hamcqAuthPhoneTipsThreeUrl')
+        ,
 ];

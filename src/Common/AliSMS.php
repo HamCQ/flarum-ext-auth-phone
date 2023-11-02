@@ -18,7 +18,8 @@ use HamCQ\AuthPhone\Common\GenerateCode;
 
 use HamCQ\AuthPhone\KeyDisk;
 use HamCQ\AuthPhone\Users;
-
+use Flarum\Foundation\ValidationException;
+use Symfony\Contracts\Translation\TranslatorInterface;
 class AliSMS 
 {
     public static function createClient($accessKeyId, $accessKeySecret){
@@ -34,11 +35,23 @@ class AliSMS
     public static function send($data, $uid, $ip){
         $msg = ["status" => false , "msg" => ""];
         $phone = isset($data["phone"]) ? $data["phone"] : 0;
-        if (!$phone){
+        $region = isset($data["region"]) ? $data["region"] : "";
+        if (!$phone || !$region){
             $msg["msg"] = "param is invalid";
             return $msg;
         }
-                
+        $translator = resolve(TranslatorInterface::class);
+        $settings = resolve(SettingsRepositoryInterface::class);
+        $temp_code = $settings->get('flarum-ext-auth-phone.sms_ali_template_code');
+
+        if(!in_array($region,["ChineseMainland","HongKong","Macao","Taiwan"])){
+            throw new ValidationException(["msg"=>$translator->trans('hamcq-auth-phone.forum.alerts.region_invalid')]);
+        }
+        if($region!="ChineseMainland"){
+            $regionInfo = ["ChineseMainland"=>"86","HongKong"=>"852","Macao"=>"853","Taiwan"=>"886"];
+            $phone = $regionInfo[$region].$phone;
+            $temp_code = $settings->get('flarum-ext-auth-phone.api_sms_ali_template_code_traditional');
+        }   
         if(self::phoneExist($phone)){
             $msg["status"] = false;
             $msg["msg"] = "phone_exist";
@@ -46,23 +59,20 @@ class AliSMS
         }
 
         $generate = resolve(GenerateCode::class);
-        $settings = app(SettingsRepositoryInterface::class);
         $second = $settings->get('flarum-ext-auth-phone.sms_ali_expire_second');
         list($res, $status) = $generate->generate($uid, $phone, $second, $ip);
-        // app('log')->info( $res );
         if ($status){
             $msg["msg"] = "code_exist";
             $msg["time"] = ceil(($res - time())/60);
             return $msg;
         }
-
         $client = self::createClient(
             $settings->get('flarum-ext-auth-phone.sms_ali_access_id'), 
             $settings->get('flarum-ext-auth-phone.sms_ali_access_sec')
         );
         $sendSmsRequest = new SendSmsRequest([
             "signName" => $settings->get('flarum-ext-auth-phone.sms_ali_sign'),
-            "templateCode" => $settings->get('flarum-ext-auth-phone.sms_ali_template_code'),
+            "templateCode" => $temp_code,
             "phoneNumbers" => $phone,
             "templateParam" => "{\"code\":\"".$res."\"}"
         ]);
