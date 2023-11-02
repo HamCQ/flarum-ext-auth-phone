@@ -74,7 +74,12 @@ export default class SettingsPage extends ExtensionPage {
                             {app.translator.trans(`hamcq-auth-phone.admin.settings.api_sms_ali_expire_second`)}
                         </StringItem>
                     </div>
-
+                    <hr></hr>
+                    {this.buildSettingComponent({
+                        type: 'boolean',
+                        setting: 'hamcqAuthPhonePostChineseLand',
+                        label: app.translator.trans(`hamcq-auth-phone.admin.settings.tips_Chinese_land`),
+                    })}
                     <hr></hr>
                     {this.buildSettingComponent({
                         type: 'boolean',

@@ -7,6 +7,7 @@ hamcq-auth-phone:
       api_sms_ali_template_code: 阿里云短信模板 code（境内）
       api_sms_ali_template_code_traditional: 阿里云短信模板 code（港澳台）
       api_sms_ali_expire_second: 短信过期时间（秒，默认 300 秒）
+      tips_Chinese_land: 允许港澳台地区用户发帖
       tips_switch: 为什么社区需要验证手机号？
       tips_title: 标题
       tips_url: 链接
@@ -28,7 +29,7 @@ hamcq-auth-phone:
       phone_exist: 此手机号已被使用，请使用其它号码重新发起验证
       phone_need: 请您先完成手机号验证
       param_invalid: 参数不合法
-      region_invalid: 区号不合法
+      region_invalid: 您所在的地区暂时不支持
     modals:
       link:
         title: 验证手机号

@@ -14,6 +14,7 @@ use Flarum\Api\JsonApiResponse;
 use Tobscure\JsonApi\Document;
 use Tobscure\JsonApi\Exception\Handler\ResponseBag;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use Flarum\Settings\SettingsRepositoryInterface;
 
 class DiscussionMiddleware implements MiddlewareInterface
 {
@@ -43,6 +44,26 @@ class DiscussionMiddleware implements MiddlewareInterface
                     $document->setErrors($error->getErrors());
                   
                     return new JsonApiResponse($document, $error->getStatus());
+                }
+                if($actor->phone_region!="86"){
+                    $settings = resolve(SettingsRepositoryInterface::class)->get('hamcqAuthPhonePostChineseLand');
+                    if(!$settings){
+                        $translator = resolve(TranslatorInterface::class);
+                        $error = new ResponseBag('422', [
+                            [
+                                'status' => '422',
+                                'code' => 'validation_error',
+                                'source' => [
+                                    'pointer' => $path,
+                                ],
+                                'detail' => $translator->trans('hamcq-auth-phone.forum.alerts.region_invalid'),
+                            ],
+                        ]);
+                        $document = new Document();
+                        $document->setErrors($error->getErrors());
+                    
+                        return new JsonApiResponse($document, $error->getStatus());
+                    }
                 }
 
             } catch (ValidationException $exception) {

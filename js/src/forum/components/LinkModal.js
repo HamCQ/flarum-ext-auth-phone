@@ -72,19 +72,19 @@ export default class LinkModal extends Modal {
                     <div className="m-t-10">
                         {
                             app.forum.data.attributes.hamcqAuthPhoneTipsOneTitle?
-                            <Link href={app.forum.data.attributes.hamcqAuthPhoneTipsOneUrl} 
+                            <Link style="color:var(--control-color);" href={app.forum.data.attributes.hamcqAuthPhoneTipsOneUrl} 
                             external={true} target="_blank">《{app.forum.data.attributes.hamcqAuthPhoneTipsOneTitle}》
                             </Link>:""
                         }
                         {
                             app.forum.data.attributes.hamcqAuthPhoneTipsTwoTitle?
-                            <Link href={app.forum.data.attributes.hamcqAuthPhoneTipsTwoUrl} 
+                            <Link style="color:var(--control-color);" href={app.forum.data.attributes.hamcqAuthPhoneTipsTwoUrl} 
                             external={true} target="_blank">《{app.forum.data.attributes.hamcqAuthPhoneTipsTwoTitle}》
                             </Link>:""
                         }
                         {
                             app.forum.data.attributes.hamcqAuthPhoneTipsThreeTitle?
-                            <Link href={app.forum.data.attributes.hamcqAuthPhoneTipsThreeUrl} 
+                            <Link style="color:var(--control-color);" href={app.forum.data.attributes.hamcqAuthPhoneTipsThreeUrl} 
                             external={true} target="_blank">《{app.forum.data.attributes.hamcqAuthPhoneTipsThreeTitle}》
                             </Link>:""
                         }
