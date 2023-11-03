@@ -22,7 +22,7 @@ use HamCQ\AuthPhone\Middlewares\DiscussionMiddleware;
 use HamCQ\AuthPhone\Console\BuildKeyCommand;
 
 use Flarum\Foundation\Paths;
-use Flarum\Http\UrlGenerator;
+use HamCQ\AuthPhone\Middlewares\BioLimitMiddleware;
 
 return [
     //需要引入 不然前端会报错
@@ -53,10 +53,15 @@ return [
     }),
 
     //接口限制
-    (new Extend\Middleware('api'))->add(DiscussionMiddleware::class),
+    (new Extend\Middleware('api'))
+        ->add(DiscussionMiddleware::class)
+        ,
 
     //事件监听
-    (new Extend\Event())->listen(Saving::class, SavePhone::class),
+    (new Extend\Event())
+        ->listen(Saving::class, SavePhone::class)
+        ->listen(Saving::class, BioLimitMiddleware::class)
+        ,
 
     //aes 秘钥存储
     (new Extend\Filesystem())
