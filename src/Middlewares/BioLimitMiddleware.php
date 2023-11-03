@@ -18,6 +18,10 @@ class BioLimitMiddleware
             throw new ValidationException(["msg"=>"Yikes! You need to verify your mobile number."]);
         }
 
+        if (Arr::has($attributes, 'socialButtons') && !$actor->phone) {
+            throw new ValidationException(["msg"=>"Yikes! You need to verify your mobile number."]);
+        }
+
         $user->save();
     }
 
