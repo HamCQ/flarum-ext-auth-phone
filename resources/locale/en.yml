@@ -7,7 +7,7 @@ hamcq-auth-phone:
       api_sms_ali_template_code: Aliyun template code
       api_sms_ali_template_code_traditional: Aliyun template code (traditional)
       api_sms_ali_expire_second: SMS expire second(default:300s)
-      tips_Chinese_land: Allow users from Hong Kong, Macao, and Taiwan to post
+      tips_Chinese_land: Allow users from Hong Kong, Macao, Taiwan and VietNam to post
       tips_switch: Why does community need to verify phone numbers?
       tips_title: Title
       tips_url: Url
