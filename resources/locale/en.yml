@@ -1,13 +1,13 @@
 hamcq-auth-phone:
   admin:
     settings:
-      api_sms_ali_access_id: Aliyun accessKeyId
-      api_sms_ali_access_sec: Aliyun accessKeySecret
-      api_sms_ali_sign: Aliyun SMS sign
-      api_sms_ali_template_code: Aliyun template code
-      api_sms_ali_template_code_traditional: Aliyun template code (traditional)
-      api_sms_ali_expire_second: SMS expire second(default:300s)
-      tips_Chinese_land: Allow users from Hong Kong, Macao, Taiwan and VietNam to post
+      api_sms_ali_access_id: Alibaba Cloud accessKeyId
+      api_sms_ali_access_sec: Alibaba Cloud accessKeySecret
+      api_sms_ali_sign: Alibaba Cloud SMS Signature
+      api_sms_ali_template_code: Alibaba Cloud SMS template code (domestic)
+      api_sms_ali_template_code_traditional: Alibaba Cloud SMS template code (Hong Kong, Macao and Taiwan, Viet Nam）
+      api_sms_ali_expire_second: SMS expiration time (seconds, default 300 seconds)
+      tips_Chinese_land: Allow users from Hong Kong, Macao, and Taiwan, VietNam to post
       tips_switch: Why does community need to verify phone numbers?
       tips_title: Title
       tips_url: Url
@@ -20,7 +20,7 @@ hamcq-auth-phone:
       error: Error
       wrong_num: Please enter the correct mobile phone number
       code_exist: The verification code has been sent. Please operate in {time} minutes later
-      send_success: verification code sent success
+      send_success: Verification code sent success
       toLink: Go to verify
       unlink_success: Unlink success
       code_null: Code required
