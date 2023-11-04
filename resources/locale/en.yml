@@ -29,7 +29,7 @@ hamcq-auth-phone:
       phone_exist: Mobile number has been used
       phone_need: Yikes! You need to verify your mobile number.
       param_invalid: Param invalid.
-      region_invalid: Region invalid.
+      region_invalid: Not currently supported in your region.
     modals:
       link:
         title: Mobile SMS Auth
