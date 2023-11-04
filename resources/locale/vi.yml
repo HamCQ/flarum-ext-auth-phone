@@ -1,1 +1,49 @@
-
+hamcq-auth-phone:
+  admin:
+    settings:
+      api_sms_ali_access_id: Truy cập đám mây của Alibaba KeyId
+      api_sms_ali_access_sec: Truy cập đám mây của Alibaba KeySecret
+      api_sms_ali_sign: Chữ ký SMS trên nền tảng đám mây của Alibaba
+      api_sms_ali_template_code: Mã mẫu SMS trên nền tảng đám mây của Alibaba (trong nước)
+      api_sms_ali_template_code_traditional: Mã mẫu SMS trên nền tảng đám mây của Alibaba (Hồng Kông, Macao và Đài Loan, Việt Nam)
+      api_sms_ali_expire_second: Thời gian hết hạn SMS (giây, mặc định là 300 giây)
+      Tips_ Chinese_land: Cho phép người dùng từ Hồng Kông, Macao và Đài Loan, Việt Nam đăng bài
+      Tips_switch: Tại sao cộng đồng cần xác minh số điện thoại?
+      tips_title: Tiêu đề
+      tips_url: Link
+  forum:
+    alerts:
+      limit: Trước khi bạn xác minh số điện thoại di động của mình, chúng tôi đã tạm thời hạn chế quyền hoạt động tài khoản của bạn.
+      already_linked: Đã liên kết điện thoại di động
+      already_used: Điện thoại di động đã được sử dụng
+      link_success: Liên kết thành công
+      error: Lỗi
+      wrong_num: Vui lòng nhập đúng số điện thoại di động
+      code_exist: Mã xác minh đã được gửi. Vui lòng hoạt động sau {time} phút nữa
+      send_success: Mã xác minh đã được gửi thành công
+      toLink: Đi để xác minh
+      unlink_success: Hủy liên kết thành công
+      code_null: Mã cần thiết
+      code_expired: Mã đã hết hạn
+      code_invalid: Mã không hợp lệ
+      phone_exist: Số điện thoại di động đã được sử dụng
+      phone_need: Rất tiếc! Bạn cần xác minh số điện thoại di động của mình.
+      param_invalid: Thông số không hợp lệ.
+      region_invalid: Vùng không hợp lệ.
+    modals:
+      link:
+        title: Xác thực SMS di động
+        phone: Số điện thoại
+        code: Mã xác minh
+      unlink:
+        title: Hủy liên kết di động
+        confirm: Xác nhận
+        cancel: Đóng
+        no_providers: Quyền tài khoản của bạn sẽ bị hạn chế sau khi hủy ràng buộc
+    buttons:
+      link: Xác thực SMS di động
+      send: Gửi
+      unlink: Hủy liên kết điện thoại di động
+      submit: Gửi
+    tips:
+      title: Tại sao cộng đồng cần xác minh số điện thoại?
