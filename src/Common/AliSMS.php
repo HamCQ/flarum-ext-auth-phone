@@ -48,7 +48,7 @@ class AliSMS
             throw new ValidationException(["msg"=>$translator->trans('hamcq-auth-phone.forum.alerts.region_invalid')]);
         }
         if($region!="ChineseMainland"){
-            $regionInfo = ["ChineseMainland"=>"86","HongKong"=>"852","Macao"=>"853","Taiwan"=>"886"];
+            $regionInfo = ["ChineseMainland"=>"86","HongKong"=>"852","Macao"=>"853","Taiwan"=>"886","VietNam"=>"84"];
             $phone = $regionInfo[$region].$phone;
             $temp_code = $settings->get('flarum-ext-auth-phone.api_sms_ali_template_code_traditional');
         }   
