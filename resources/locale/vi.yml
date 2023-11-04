@@ -29,7 +29,7 @@ hamcq-auth-phone:
       phone_exist: Số điện thoại di động đã được sử dụng
       phone_need: Rất tiếc! Bạn cần xác minh số điện thoại di động của mình.
       param_invalid: Thông số không hợp lệ.
-      region_invalid: Vùng không hợp lệ.
+      region_invalid: Hiện không được hỗ trợ trong khu vực của bạn.
     modals:
       link:
         title: Xác thực SMS di động
