@@ -57,10 +57,10 @@ class SavePhone
             }
             $translator = resolve(TranslatorInterface::class);
 
-            if(!in_array($attributes['region'],["ChineseMainland","HongKong","Macao","Taiwan"])){
+            if(!in_array($attributes['region'],["ChineseMainland","HongKong","Macao","Taiwan","VietNam"])){
                 throw new ValidationException(["msg"=>$translator->trans('hamcq-auth-phone.forum.alerts.region_invalid')]);
             }
-            $regionInfo = ["ChineseMainland"=>"86","HongKong"=>"852","Macao"=>"853","Taiwan"=>"886"];
+            $regionInfo = ["ChineseMainland"=>"86","HongKong"=>"852","Macao"=>"853","Taiwan"=>"886","VietNam"=>"84"];
             if($attributes['region']!="ChineseMainland"){
                 $phone = $regionInfo[$attributes['region']].$phone;
             }
