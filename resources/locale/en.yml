@@ -1,8 +1,8 @@
 hamcq-auth-phone:
   admin:
     settings:
-      api_sms_ali_access_id: Alibaba Cloud accessKeyId
-      api_sms_ali_access_sec: Alibaba Cloud accessKeySecret
+      api_sms_ali_access_id: Alibaba Cloud access KeyId
+      api_sms_ali_access_sec: Alibaba Cloud access KeySecret
       api_sms_ali_sign: Alibaba Cloud SMS Signature
       api_sms_ali_template_code: Alibaba Cloud SMS template code (domestic)
       api_sms_ali_template_code_traditional: Alibaba Cloud SMS template code (Hong Kong, Macao and Taiwan, Viet Nam）
@@ -23,9 +23,9 @@ hamcq-auth-phone:
       send_success: Verification code sent success
       toLink: Go to verify
       unlink_success: Unlink success
-      code_null: Code required
-      code_expired: Code expired
-      code_invalid: Code invalid
+      code_null: Please enter verification code
+      code_expired: The verification code has expired or does not exist, please resend it.
+      code_invalid: The verification code is incorrect, please re-enter it.
       phone_exist: Mobile number has been used
       phone_need: Yikes! You need to verify your mobile number.
       param_invalid: Param invalid.
@@ -42,7 +42,7 @@ hamcq-auth-phone:
         no_providers: Your account permission will be restricted after unbinding
     buttons:
       link: Mobile SMS Auth
-      send: Send
+      send: Receive verification code
       unlink: Unlink Mobile Phone
       submit: Submit
     tips:
