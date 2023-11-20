@@ -16,13 +16,17 @@ class BioLimitMiddleware
         $attributes = Arr::get($data, 'attributes', []);
         if ( isset($attributes['bio']) && !$actor->phone) {
             throw new ValidationException(["msg"=>"Yikes! You need to verify your mobile number."]);
+            return ;
         }
 
         if (Arr::has($attributes, 'socialButtons') && !$actor->phone) {
             throw new ValidationException(["msg"=>"Yikes! You need to verify your mobile number."]);
+            return ;
         }
 
-        $user->save();
+        if( isset($attributes['bio']) || Arr::has($attributes, 'socialButtons')){
+            $user->save();
+        }
     }
 
 }
