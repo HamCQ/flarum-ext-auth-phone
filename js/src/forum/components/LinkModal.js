@@ -28,7 +28,7 @@ export default class LinkModal extends Modal {
                             wrapperAttrs: {
                                 className:"f-left"
                             },
-                            options: { ChineseMainland: '86', HongKong: '852', Macao:"853", Taiwan:"886" },
+                            options: { ChineseMainland: '86', HongKong: '852', Macao:"853", Taiwan:"886", VietNam:"84" },
                             value: this.region,
                             onchange: (val) => this.region = val,
                         })}
