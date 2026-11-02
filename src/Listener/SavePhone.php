@@ -74,7 +74,8 @@ class SavePhone
             if(!$info){
                 throw new ValidationException(["msg"=>$translator->trans('hamcq-auth-phone.forum.alerts.code_expired')]);
             }
-            if($info->code!=$attributes['code']){
+            if ((!is_string($attributes['code']) && !is_int($attributes['code']))
+                || (string) $info->code !== (string) $attributes['code']) {
                 // app('log')->info( "code_invalid: userid:".$user->id." cacheCode:[".$code."] attrCode[".$attributes['code']."]" );
                 throw new ValidationException(["msg"=>$translator->trans('hamcq-auth-phone.forum.alerts.code_invalid')]);
             }
